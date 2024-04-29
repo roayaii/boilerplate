@@ -1,5 +1,6 @@
 <template >
     <div>
-        <slot />
+        <LayoutHeader />
+        <slot  />
     </div>
 </template>
