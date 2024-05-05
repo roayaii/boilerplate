@@ -309,6 +309,7 @@ declare global {
   const useTextDirection: typeof import('../../node_modules/@vueuse/core')['useTextDirection']
   const useTextSelection: typeof import('../../node_modules/@vueuse/core')['useTextSelection']
   const useTextareaAutosize: typeof import('../../node_modules/@vueuse/core')['useTextareaAutosize']
+  const useTheme: typeof import('../../composables/useTheme')['default']
   const useThrottle: typeof import('../../node_modules/@vueuse/core')['useThrottle']
   const useThrottleFn: typeof import('../../node_modules/@vueuse/core')['useThrottleFn']
   const useThrottledRefHistory: typeof import('../../node_modules/@vueuse/core')['useThrottledRefHistory']
@@ -677,6 +678,7 @@ declare module 'vue' {
     readonly useTextDirection: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useTextDirection']>
     readonly useTextSelection: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useTextSelection']>
     readonly useTextareaAutosize: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useTextareaAutosize']>
+    readonly useTheme: UnwrapRef<typeof import('../../composables/useTheme')['default']>
     readonly useThrottle: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useThrottle']>
     readonly useThrottleFn: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useThrottleFn']>
     readonly useThrottledRefHistory: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useThrottledRefHistory']>
@@ -1038,6 +1040,7 @@ declare module '@vue/runtime-core' {
     readonly useTextDirection: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useTextDirection']>
     readonly useTextSelection: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useTextSelection']>
     readonly useTextareaAutosize: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useTextareaAutosize']>
+    readonly useTheme: UnwrapRef<typeof import('../../composables/useTheme')['default']>
     readonly useThrottle: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useThrottle']>
     readonly useThrottleFn: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useThrottleFn']>
     readonly useThrottledRefHistory: UnwrapRef<typeof import('../../node_modules/@vueuse/core')['useThrottledRefHistory']>
