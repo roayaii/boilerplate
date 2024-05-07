@@ -9,7 +9,6 @@
 
 
 <script setup >
-const {theme} = useTheme()
 useHead({
   title: 'My App',
   meta: [
@@ -18,10 +17,9 @@ useHead({
   bodyAttrs: {
     class: 'test'
   },
-  htmlAttrs: {
-    class: 'dark'
+  htmlAttrs : {
+    class: "transition-all duration-500"
   }
-
 })
 
 
