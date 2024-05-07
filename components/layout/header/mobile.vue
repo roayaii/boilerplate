@@ -1,7 +1,7 @@
 <template >
     <div class="bg-slate-200 dark:bg-slate-800 py-2">
         <div class="px-4 md:container flex items-center justify-between">
-            <div class="flex items-center gap-3 text-teal-900">
+            <div class="flex items-center gap-3 text-teal-900 dark:text-teal-200">
                 <nuxt-link to="/" class="font-medium text-lg" >
                     Home
                 </nuxt-link>
@@ -9,9 +9,19 @@
                     Blog
                 </nuxt-link>
             </div>
-            <div>
+            <div class="flex items-center gap-2">
+                <input
+                v-model="isDark"
+                type="checkbox"
+                class="sr-only"
+                id="darkmode-toggle"
+                >
+                <label for="darkmode-toggle" class="toggle">
+                <span>Toggle dark mode</span>
+                </label>
                 <Icon class="w-8 h-8" name="uil:github" color="#134E4A" />
             </div>
+            {{ theme }}
         </div>
     </div>
 </template>
@@ -20,5 +30,128 @@
 
 <script setup >
 const router = useRouter()
+const { isDark, setDark , setLight } = useTheme()
 
+watch(
+    () => isDark
+    , 
+    () => {
+        if(theme.value == false){
+            console.log('light')
+            // console.log('themeInside.value == false')
+            // theme.value = 'light'
+            setLight()
+        }else {
+            // console.log('themeInside.value == true')
+            // theme.value = 'dark'
+            console.log('dark')
+            setDark()
+        }
+    }
+)
 </script>
+
+<style scoped >
+/*
+  📣 Note: all sizes are in ems, so change the .toggle font-size to
+  scale to whatever size you need.
+*/
+
+.toggle {
+  font-size: 2rem; /* 👈 change this to scale */
+  border: .125em solid currentColor;
+  border-radius: 2em;
+  cursor: pointer;
+  display: block;
+  height: 2em;
+  position: relative;
+  width: 3.75em;
+}
+.toggle span {
+  background-color: currentColor;
+  border-radius: 2em;
+  display: block;
+  height: 1.5em;
+  left: .25em;
+  overflow: hidden;
+  position: absolute;
+  top: .25em;
+  text-indent: -9999px;
+  transition: left .25s;
+  width: 1.5em;
+  z-index: 2;
+}
+
+.toggle::before,
+.toggle::after {
+  content: '';
+  display: block;
+  border-radius: 1em;
+  position: absolute;
+  z-index: 1;
+}
+
+.toggle::after {
+  box-shadow: .25em .25em #5901d8;
+  height: 1.125em;
+  right: .9em;
+  top: .125em;
+  width: 1.125em;
+}
+
+.toggle::before {
+  background-color: #ffc409;
+  height: .625em;
+  outline: .25em dotted #ffc409;
+  outline-offset: .125em;
+  left: .7em;
+  top: .7em;
+  width: .625em;
+}
+
+input:checked ~ .toggle span {
+  left: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .25s;
+  color: #1e1e1e;
+  background: linear-gradient(to bottom right, #eefff4 25%, #a0ffd9 50%, #5c0095 75%, #01072a);
+  background-size: 300% 300%;
+  background-position: top left;
+  transition: background-position .5s;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+
+body:has(#darkmode-toggle:checked) {
+  background-position: 100% 100%;
+  color: #d0d0d0;
+}
+</style>
