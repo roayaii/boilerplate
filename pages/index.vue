@@ -1,6 +1,6 @@
 <template >
     <div class="container py-2">
-        <h1 class="font-medium text-red-800">
+        <h1 class="font-medium">
             HomePage
         </h1>
     </div>
