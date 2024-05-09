@@ -10,18 +10,12 @@
                 </nuxt-link>
             </div>
             <div class="flex items-center gap-2">
-                <input
-                v-model="isDark"
-                type="checkbox"
-                class="sr-only"
-                id="darkmode-toggle"
-                >
-                <label for="darkmode-toggle" class="toggle">
-                <span>Toggle dark mode</span>
-                </label>
+                <button class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 p-1.5 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 inline-flex items-center">
+                  <Icon @click="setLight" v-if="isDark" class="w-7 h-7" name="ph:sun" color="white" />
+                  <Icon @click="setDark" v-else class="w-7 h-7" name="ph:moon" color="black" />
+                </button>
                 <Icon class="w-8 h-8" name="uil:github" color="#134E4A" />
             </div>
-            {{ theme }}
         </div>
     </div>
 </template>
@@ -32,23 +26,6 @@
 const router = useRouter()
 const { isDark, setDark , setLight } = useTheme()
 
-watch(
-    () => isDark
-    , 
-    () => {
-        if(theme.value == false){
-            console.log('light')
-            // console.log('themeInside.value == false')
-            // theme.value = 'light'
-            setLight()
-        }else {
-            // console.log('themeInside.value == true')
-            // theme.value = 'dark'
-            console.log('dark')
-            setDark()
-        }
-    }
-)
 </script>
 
 <style scoped >
