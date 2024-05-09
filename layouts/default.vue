@@ -1,6 +1,8 @@
 <template >
-    <div>
+    <div class=" text-slate-800 dark:text-slate-200 min-h-screen flex flex-col">
         <LayoutHeader />
-        <slot  />
+        <div class="dark:bg-black dark:text-white h-full grow" >
+            <slot  />
+        </div>
     </div>
 </template>
