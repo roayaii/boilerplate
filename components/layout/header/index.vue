@@ -16,7 +16,6 @@ watch(
 </script>
 
 <template >
-
     <LayoutHeaderDesktop v-if="lg" />
     <LayoutHeaderMobile v-else />
 </template>
