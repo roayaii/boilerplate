@@ -81,7 +81,7 @@
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#icon-collections": [
-        "./icon-collections"
+        "./icon-collections.mjs"
       ],
       "#vue-router": [
         "./vue-router-stub"
@@ -90,7 +90,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev"
+        "./manifest/meta/55db6b08-30dc-4a24-b131-5c0a14c429e1.json"
       ],
       "#build": [
         "."
